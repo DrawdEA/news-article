@@ -10,64 +10,207 @@ import {
   Share2,
   X
 } from "lucide-react";
+import { MealBudgetSlider } from "./MealBudgetSlider";
+
+type StoryBlockData =
+  | { kind: "subhead" | "paragraph"; text: string }
+  | { kind: "quote"; text: string; attribution: string }
+  | { kind: "media"; photoIndex: number }
+  | { kind: "interactive" };
 
 const article = {
   publication: "Heritage Pulse",
   tagline: "Authority in every update.",
-  section: "Nation",
-  title: "Palace Rejects New Destabilization Plot Rumors",
+  section: "News Feature",
+  topic: "Pait ng Langis: Global na Krisis, Lokal na Sikmura",
+  title:
+    "Krisis sa Langis, Krisis sa Sikmura: Patuloy na Laban ng mga Karinderya sa Batong Malake",
   deck:
-    "Officials urged the public to examine unverified political claims with care as fresh rumors circulated online.",
-  author: "Staff Report",
+    "Habang tumataas ang presyo ng langis, LPG, at bilihin, ramdam ng maliliit na karinderya at estudyante sa Batong Malake ang bigat ng pandaigdigang krisis sa araw-araw na pagkain.",
+  author: "Jade Hannah Medico",
   date: "May 12, 2026",
-  readTime: "4 min read",
-  heroImage:
-    "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=85",
-  heroAlt:
-    "A government-style building seen from across a landscaped public space.",
-  heroCaption:
-    "Use this lead image slot for the primary article photo or newsroom-approved artwork.",
-  body: [
-    "MANILA - This opening paragraph is editable. Replace it with the first paragraph of your article when the final copy is ready.",
-    "Keep each paragraph as a separate string inside the body array. That makes the article easy to scan, reorder, or remove without touching the layout code.",
-    "Use this template for a fast civic-news article page with a clean masthead, visible publication identity, image placements, share tools, and a readable story column.",
-    "The page is intentionally built without hard-coded article dependencies, so you can paste the finished report directly into this file later.",
-    "This paragraph can hold additional context, such as when the issue began, who first raised the concern, and what agencies or officials have said so far.",
-    "A longer article may use this space to explain the background of the controversy, including prior statements, relevant timelines, and public reaction.",
-    "Use another paragraph here for a direct quote or paraphrased statement. When you paste the final article, keep quotes in their own paragraph if you want them to stand out in the reading flow.",
-    "This section can also carry verification details, such as what documents were reviewed, which offices were contacted, and what claims remain unconfirmed.",
-    "For developing stories, this placeholder can become an update paragraph that clarifies what changed since the first version of the report was published.",
-    "Add local color or scene-setting here if the article needs it. A newsroom piece often benefits from one paragraph that gives readers a sense of place without slowing the story down.",
-    "This paragraph can be used for response from the opposing side, a related agency, or an affected group. Keeping responses separate makes attribution clearer.",
-    "If the story involves policy, law, public safety, or elections, use this space to explain why the matter affects ordinary readers.",
-    "A later paragraph may summarize expert analysis, historical comparison, or previous reporting that helps readers understand the significance of the issue.",
-    "Use this near the end for what happens next, such as scheduled hearings, expected statements, further investigation, or follow-up actions by officials.",
-    "Close with a final paragraph that reinforces the latest confirmed information. You can also use this spot for a note that the story will be updated as more details become available."
-  ],
-  inlineImages: [
+  readTime: "5 min read",
+  treatment: "News Feature",
+  photos: [
     {
-      src: "https://images.unsplash.com/photo-1519452575417-564c1401ecc0?auto=format&fit=crop&w=1400&q=85",
-      alt: "A press room setup with microphones and empty chairs.",
+      src: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1800&q=85",
+      alt: "Prepared dishes arranged in a small eatery.",
       caption:
-        "Inline image slot 1. Replace this with a press conference, document, location, or subject photo."
+        "Isang karinderya sa Batong Malake ang patuloy na nagsisilbi ng abot-kayang pagkain sa mga estudyante sa gitna ng pagtaas ng presyo ng LPG, bigas, at sangkap sa pagluluto.",
+      credit: "Prototype photo via Unsplash"
     },
     {
-      src: "https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=1400&q=85",
-      alt: "Printed newspapers arranged on a table.",
+      src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1400&q=85",
+      alt: "A simple student meal served on a table.",
       caption:
-        "Inline image slot 2. This can hold a secondary image, explainer graphic, or timeline visual."
+        "Para sa maraming estudyante, bawat dagdag-presyo sa ulam o kanin ay nangangahulugan ng mas mahigpit na pagba-budget sa araw-araw na allowance.",
+      credit: "Prototype photo via Unsplash"
     }
   ],
+  outline: [
+    {
+      title: "Mula Gitnang Silangan Hanggang Batong Malake",
+      points: [
+        "Epekto ng tensyon sa Middle East sa petrolyo, LPG, at bilihin",
+        "Pagtaas ng cooking gas, delivery fees, at sangkap"
+      ]
+    },
+    {
+      title: "Ang Diskarte ng mga Karinderya at Estudyante",
+      points: [
+        "Pagbabawas ng serving size at pagtaas ng presyo",
+        "Pag-aadjust ng meal budget at araw-araw na gastusin"
+      ]
+    },
+    {
+      title: "Karinderya Bilang Sandigan ng Komunidad",
+      points: [
+        "Karinderya bilang pangunahing mapagkukunan ng murang pagkain",
+        "Bayanihan at resiliency sa harap ng global oil crisis"
+      ]
+    }
+  ],
+  quickFacts: [
+    ["Lokasyon", "Batong Malake, Los Banos, Laguna"],
+    ["Treatment", "News Feature"],
+    ["Pangunahing isyu", "Oil, LPG, at food inflation"],
+    ["Apektado", "Karinderya owners at UPLB students"]
+  ],
+  keyVoices: [
+    "Analyn Leron, karinderya cook malapit sa UPLB",
+    "Lyn, UPLB student",
+    "Dr. Leila Africa, nutritionist at propesor sa UPLB College of Human Ecology"
+  ],
+  pricePressures: [
+    "LPG at cooking gas",
+    "Bigas at ulam ingredients",
+    "Delivery fees",
+    "Pamasahe at transportasyon",
+    "Cafe at student meal prices"
+  ],
+  budgetSnapshot: [
+    ["Dating meal budget", "PHP 50-PHP 60"],
+    ["Current meal cost", "Hanggang PHP 80"],
+    ["Cafe increase", "+PHP 10 to +PHP 20"]
+  ],
   related: [
-    "Senate committee schedules hearing on online misinformation",
-    "Explainer: How verified reports move through public agencies",
-    "Local officials call for stronger digital literacy programs"
+    "Explainer: Paano umaabot sa presyo ng ulam ang oil price hike",
+    "Listahan: Mga gastusing nagpapamahal sa student meals",
+    "Photo essay idea: Isang tanghali sa karinderya ng Batong Malake"
   ]
 };
 
-const firstSection = article.body.slice(0, 4);
-const secondSection = article.body.slice(4, 9);
-const thirdSection = article.body.slice(9);
+const storyBlocks: StoryBlockData[] = [
+  {
+    kind: "subhead",
+    text: "Mula Gitnang Silangan Hanggang Batong Malake"
+  },
+  {
+    kind: "paragraph",
+    text:
+      "LOS BANOS, Laguna - Sa gitna ng tumitinding tensyon sa Gitnang Silangan, hindi lamang mga bansang sangkot sa giyera ang naaapektuhan. Sa Brgy. Batong Malake sa Los Banos, Laguna, ramdam din ang epekto nito sa maliliit na karinderyang araw-araw na pinagkukunan ng pagkain ng mga estudyante at manggagawa."
+  },
+  {
+    kind: "paragraph",
+    text:
+      "Dahil sa kaguluhan sa oil-producing regions sa Middle East, patuloy ang pagtaas ng presyo ng produktong petrolyo at liquefied petroleum gas o LPG. Kasabay nito ang pagmahal ng transportasyon, delivery fees, at presyo ng mga pangunahing sangkap sa pagluluto. Para sa mga karinderya owners sa Batong Malake, malaking hamon ang pagpapanatiling abot-kaya ng kanilang pagkain."
+  },
+  {
+    kind: "quote",
+    text:
+      "Kasi, ayoko sana talagang tumaas ng five pesos ang ulam namin pero baka din eh, dati may nakukuha si ma'am na murang bigas, ngayon talagang wala, zero talaga, kaya no choice.",
+    attribution: "Analyn Leron, karinderya cook malapit sa UPLB"
+  },
+  {
+    kind: "paragraph",
+    text:
+      "Ayon kay Leron, kahit ang simpleng takal ng ulam ay kailangan nang pag-isipan. Kapag tumaas ang puhunan sa bigas, karne, gulay, at gas, napipilitan silang mamili kung magtataas ng presyo o magbabawas ng serving size."
+  },
+  {
+    kind: "quote",
+    text:
+      "Alam mo yung, ang takal ko'y ganito, pero kailangan ko pa medyong bawasan para lang hindi tumaas yung cup ko na ulam.",
+    attribution: "Leron"
+  },
+  {
+    kind: "subhead",
+    text: "Presyong Ramdam sa Tinda"
+  },
+  {
+    kind: "paragraph",
+    text:
+      "Karaniwang umaasa ang mga estudyante sa mga murang karinderya sa lugar dahil mas mababa ang presyo nito kumpara sa restaurants at fast food chains. Ngunit kahit ang dating abot-kayang student meals ay unti-unti nang naapektuhan ng inflation."
+  },
+  {
+    kind: "paragraph",
+    text:
+      "Mula sa dating PHP 50 hanggang PHP 60 na budget kada meal, umaabot na ngayon sa halos PHP 80 ang ilang pagkain sa paligid ng campus. Dahil dito, maraming estudyante ang napipilitang mag-adjust sa kanilang araw-araw na gastusin."
+  },
+  {
+    kind: "media",
+    photoIndex: 1
+  },
+  {
+    kind: "quote",
+    text:
+      "Napansin ko tumataas ang presyo ng mga pagkain usually dito sa Wedeliver tapos sa Janges din. Tapos mas napansin ko po siya sa mga cafe since mahilig po akong mag-aral sa mga cafe tapos napansin ko rin na nagkaroon ng plus 10 or plus 20 pesos na increase.",
+    attribution: "Lyn, UPLB student"
+  },
+  {
+    kind: "interactive"
+  },
+  {
+    kind: "subhead",
+    text: "Ang Diskarte ng mga Karinderya at Estudyante"
+  },
+  {
+    kind: "paragraph",
+    text:
+      "Ayon sa ilang estudyante, naging bahagi na ng kanilang routine ang maingat na pagkalkula kung gaano karaming pagkain ang kaya ng natitirang allowance. Bukod sa pagtaas ng presyo ng sangkap, problema rin ng mga karinderya ang cooking gas at delivery expenses."
+  },
+  {
+    kind: "paragraph",
+    text:
+      "Ang ilang tindahan ay nagbabawas na lamang ng serving size o kaya ay nililimitahan ang dami ng nilulutong pagkain kada araw upang maiwasan ang pagkalugi. Ngunit para sa mga nagtitinda, hindi rin madali ang magbawas dahil estudyante mismo ang madalas nilang suki."
+  },
+  {
+    kind: "quote",
+    text:
+      "Ayaw ko man, pinag-dedebatehan namin ni ma'am kung yung takalan na maliit yung sampung piso kaya lang kawawa rin naman kasi hindi rin naman sila mabubusog.",
+    attribution: "Leron"
+  },
+  {
+    kind: "subhead",
+    text: "Karinderya Bilang Sandigan ng Komunidad"
+  },
+  {
+    kind: "paragraph",
+    text:
+      "Sa kabila ng mga hamon, nananatiling mahalagang bahagi ng komunidad ang mga karinderya sa Batong Malake. Para sa maraming dormers at transient students, ito ang pangunahing mapagkukunan ng murang pagkain."
+  },
+  {
+    kind: "quote",
+    text:
+      "I think napakahalaga talaga ng karinderya kasi ayun ang takbuhan ng mga estudyanteng nangangailangan ng mas mura, mas affordable. For example, monggo at rice.",
+    attribution:
+      "Dr. Leila Africa, nutritionist at propesor sa UPLB College of Human Ecology"
+  },
+  {
+    kind: "paragraph",
+    text:
+      "Ayon kay Africa, may direktang epekto sa kalusugan at pag-aaral ng mga estudyante ang kakulangan sa sapat na pagkain. Kapag kapos ang budget, maaaring maapektuhan hindi lamang ang dami ng kinakain kundi pati ang kalidad ng nutrisyon."
+  },
+  {
+    kind: "paragraph",
+    text:
+      "Sa gitna ng pandaigdigang krisis, ipinapakita ng mga karinderya sa Batong Malake ang kahalagahan ng maliliit na negosyo sa pagpapanatili ng access sa pagkain. Sa bawat murang ulam at dagdag na sabaw, nakikita ang pakikipaglaban ng lokal na komunidad laban sa epekto ng global oil crisis."
+  },
+  {
+    kind: "paragraph",
+    text:
+      "Habang nagpapatuloy ang tensyon sa Gitnang Silangan, patuloy ding umaasa ang mga estudyante at karinderya owners na muling bababa ang presyo ng langis at bilihin. Ngunit sa ngayon, bawat pisong natitipid ay mahalaga, mula gasolinahan hanggang hapag-kainan."
+  }
+];
 
 export default function Home() {
   return (
@@ -75,7 +218,7 @@ export default function Home() {
       <header className="site-header">
         <div className="ticker">
           <span>Featured</span>
-          <p>Verified civic reporting, updated as details are confirmed.</p>
+          <p>{article.topic}</p>
         </div>
 
         <div className="masthead">
@@ -112,6 +255,7 @@ export default function Home() {
       <div className="page-shell">
         <article className="article-layout">
           <div className="article-main">
+            <p className="topic-label">{article.topic}</p>
             <a className="section-link" href="#">
               {article.section}
             </a>
@@ -123,7 +267,7 @@ export default function Home() {
               <div>
                 <p>By {article.author}</p>
                 <span>
-                  {article.date} / {article.readTime}
+                  {article.date} / {article.readTime} / {article.treatment}
                 </span>
               </div>
 
@@ -140,34 +284,68 @@ export default function Home() {
               </div>
             </div>
 
-            <figure className="hero-media">
-              <img src={article.heroImage} alt={article.heroAlt} />
-              <figcaption>{article.heroCaption}</figcaption>
-            </figure>
+            <PhotoFigure photo={article.photos[0]} variant="hero" />
 
             <div className="article-body">
-              {firstSection.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-
-              <ImageBreak image={article.inlineImages[0]} />
-
-              {secondSection.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-
-              <ImageBreak image={article.inlineImages[1]} />
-
-              {thirdSection.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
+              {storyBlocks.map((block, index) => (
+                <StoryBlock key={`${block.kind}-${index}`} block={block} />
               ))}
             </div>
           </div>
 
           <aside className="story-sidebar" aria-label="Article sidebar">
-            <section className="ad-box">
-              <span>Advertisement</span>
-              <div>300 x 250</div>
+            <section className="story-plan">
+              <h2>Story Plan</h2>
+              <ol>
+                {article.outline.map((item) => (
+                  <li key={item.title}>
+                    <strong>{item.title}</strong>
+                    <span>{item.points.join(" / ")}</span>
+                  </li>
+                ))}
+              </ol>
+            </section>
+
+            <section>
+              <h2>Quick Facts</h2>
+              <dl className="fact-list">
+                {article.quickFacts.map(([label, value]) => (
+                  <div key={label}>
+                    <dt>{label}</dt>
+                    <dd>{value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </section>
+
+            <section>
+              <h2>Price Pressure</h2>
+              <ul className="check-list">
+                {article.pricePressures.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </section>
+
+            <section>
+              <h2>Budget Snapshot</h2>
+              <dl className="budget-list">
+                {article.budgetSnapshot.map(([label, value]) => (
+                  <div key={label}>
+                    <dt>{label}</dt>
+                    <dd>{value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </section>
+
+            <section>
+              <h2>Key Voices</h2>
+              <ul>
+                {article.keyVoices.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
             </section>
 
             <section>
@@ -187,17 +365,6 @@ export default function Home() {
                 </button>
               </div>
             </section>
-
-            <section>
-              <h2>You Might Also Like</h2>
-              <ul>
-                {article.related.map((item) => (
-                  <li key={item}>
-                    <a href="#">{item}</a>
-                  </li>
-                ))}
-              </ul>
-            </section>
           </aside>
         </article>
       </div>
@@ -210,15 +377,48 @@ export default function Home() {
   );
 }
 
-function ImageBreak({
-  image
+function StoryBlock({
+  block
 }: {
-  image: { src: string; alt: string; caption: string };
+  block: StoryBlockData;
+}) {
+  if (block.kind === "subhead") {
+    return <h2 className="article-subhead">{block.text}</h2>;
+  }
+
+  if (block.kind === "quote") {
+    return (
+      <blockquote>
+        <p>"{block.text}"</p>
+        <cite>{block.attribution}</cite>
+      </blockquote>
+    );
+  }
+
+  if (block.kind === "media") {
+    return <PhotoFigure photo={article.photos[block.photoIndex]} variant="inline" />;
+  }
+
+  if (block.kind === "interactive") {
+    return <MealBudgetSlider />;
+  }
+
+  return <p>{block.text}</p>;
+}
+
+function PhotoFigure({
+  photo,
+  variant
+}: {
+  photo: { src: string; alt: string; caption: string; credit: string };
+  variant: "hero" | "inline";
 }) {
   return (
-    <figure className="inline-media">
-      <img src={image.src} alt={image.alt} />
-      <figcaption>{image.caption}</figcaption>
+    <figure className={variant === "hero" ? "hero-media" : "inline-media"}>
+      <img src={photo.src} alt={photo.alt} />
+      <figcaption>
+        {photo.caption} <span>{photo.credit}</span>
+      </figcaption>
     </figure>
   );
 }
