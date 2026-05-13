@@ -73,6 +73,9 @@ const storyBlocks: StoryBlockData[] = [
       "“Alam mo yung, ang takal ko’y ganito, pero kailangan ko pa medyong bawasan para lang hindi tumaas ‘yung cup ko na ulam.” Ayon sa kanya."
   },
   {
+    kind: "interactive"
+  },
+  {
     kind: "paragraph",
     text:
       "Karaniwang umaasa ang mga estudyante sa mga murang karinderya sa lugar dahil mas mababa ang presyo nito kumpara sa mga restaurant at fast food chains. Ngunit kahit ang mga “student meals” ay unti-unti nang naapektuhan ng inflation."
@@ -130,9 +133,6 @@ const storyBlocks: StoryBlockData[] = [
     kind: "paragraph",
     text:
       "Habang nagpapatuloy ang tensyon sa Gitnang Silangan, patuloy ding umaasa ang mga estudyante at karinderya owners na muling bababa ang presyo ng langis at bilihin. Ngunit sa ngayon, bawat pisong natitipid ay mahalaga, mula gasolinahan hanggang hapag-kainan."
-  },
-  {
-    kind: "interactive"
   }
 ];
 
