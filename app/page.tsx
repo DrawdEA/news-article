@@ -219,7 +219,7 @@ export default function Home() {
             <section className="ad-box">
               <span>Advertisement</span>
               <img src="/photos/ad.png" alt="Advertisement" />
-              <p>By Nicole Mendoza</p>
+              <p>By Nicole Florendo</p>
             </section>
 
             <section>
