@@ -15,12 +15,11 @@ import { MealBudgetSlider } from "./MealBudgetSlider";
 type StoryBlockData =
   | { kind: "paragraph"; text: string }
   | { kind: "media"; photoIndex: number }
-  | { kind: "ad" }
   | { kind: "interactive" };
 
 const article = {
-  publication: "Ang Kadugyutan",
-  tagline: "Kasama mo sa bawat asim.",
+  publication: "DEVC 125",
+  tagline: "Medico, Pito, Perez",
   section: "News Feature",
   topic: "Pait ng Langis: Global na Krisis, Lokal na Sikmura",
   title:
@@ -31,35 +30,18 @@ const article = {
   treatment: "News Feature",
   photos: [
     {
-      src: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1800&q=85",
+      src: "/photos/headline.png",
       alt: "Prepared dishes arranged in a small eatery.",
       caption:
-        "Isang karinderya sa Batong Malake ang patuloy na nagsisilbi ng abot-kayang pagkain sa mga estudyante sa gitna ng pagtaas ng presyo ng LPG, bigas, at sangkap sa pagluluto.",
-      credit: "Photo: Unsplash"
+        "Isang karinderya ang nag-aalok ng half-order meals sa Barangay Batong Malake upang mapanatiling abot-kaya ang pagkain para sa mga mag-aaral sa kabila ng implasyon.",
+      credit: "Photo by Chloe Perez."
     },
     {
-      src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1400&q=85",
+      src: "/photos/2nd.png",
       alt: "A simple student meal served on a table.",
       caption:
-        "Para sa maraming estudyante, bawat dagdag-presyo sa ulam o kanin ay nangangahulugan ng mas mahigpit na pagba-budget sa araw-araw na allowance.",
-      credit: "Photo: Unsplash"
-    }
-  ],
-  related: [
-    {
-      title: "Presyo ng bilihin, ramdam sa pang-araw-araw na baon",
-      image:
-        "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      title: "Mga estudyante, mas maingat sa paggastos sa paligid ng campus",
-      image:
-        "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=400&q=80"
-    },
-    {
-      title: "Lokal na negosyo, patuloy na umaangkop sa taas-presyo",
-      image:
-        "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?auto=format&fit=crop&w=400&q=80"
+        "Inihain ang isang bawas-sa-normal na ulam sa isang karinderya ng Barangay Batong Malake upang mapanatiling abot-kaya ang presyo sa gitna ng implasyon.",
+      credit: "Photo by Chloe Perez."
     }
   ]
 };
@@ -91,9 +73,6 @@ const storyBlocks: StoryBlockData[] = [
       "“Alam mo yung, ang takal ko’y ganito, pero kailangan ko pa medyong bawasan para lang hindi tumaas ‘yung cup ko na ulam.” Ayon sa kanya."
   },
   {
-    kind: "ad"
-  },
-  {
     kind: "paragraph",
     text:
       "Karaniwang umaasa ang mga estudyante sa mga murang karinderya sa lugar dahil mas mababa ang presyo nito kumpara sa mga restaurant at fast food chains. Ngunit kahit ang mga “student meals” ay unti-unti nang naapektuhan ng inflation."
@@ -116,9 +95,6 @@ const storyBlocks: StoryBlockData[] = [
     kind: "paragraph",
     text:
       "Ayon sa ilang estudyante, naging bahagi na ng kanilang routine ang maingat na pag kalkula kung gaano karaming pagkain ang kaya ng natitirang allowance."
-  },
-  {
-    kind: "interactive"
   },
   {
     kind: "paragraph",
@@ -154,6 +130,9 @@ const storyBlocks: StoryBlockData[] = [
     kind: "paragraph",
     text:
       "Habang nagpapatuloy ang tensyon sa Gitnang Silangan, patuloy ding umaasa ang mga estudyante at karinderya owners na muling bababa ang presyo ng langis at bilihin. Ngunit sa ngayon, bawat pisong natitipid ay mahalaga, mula gasolinahan hanggang hapag-kainan."
+  },
+  {
+    kind: "interactive"
   }
 ];
 
@@ -167,8 +146,7 @@ export default function Home() {
         </div>
 
         <div className="masthead">
-          <a className="brand" href="#" aria-label="Ang Kadugyutan home">
-            <span className="brand-mark">AK</span>
+          <a className="brand" href="#" aria-label="DEVC 125 home">
             <span>
               <strong>{article.publication}</strong>
               <small>{article.tagline}</small>
@@ -240,7 +218,8 @@ export default function Home() {
           <aside className="story-sidebar compact-sidebar" aria-label="Article tools">
             <section className="ad-box">
               <span>Advertisement</span>
-              <div>300 x 250</div>
+              <img src="/photos/ad.png" alt="Advertisement" />
+              <p>By Nicole Mendoza</p>
             </section>
 
             <section>
@@ -260,17 +239,6 @@ export default function Home() {
               </div>
             </section>
 
-            <section>
-              <h2>You Might Also Like</h2>
-              <div className="related-list">
-                {article.related.map((item) => (
-                  <a href="#" key={item.title}>
-                    <img src={item.image} alt="" />
-                    <span>{item.title}</span>
-                  </a>
-                ))}
-              </div>
-            </section>
           </aside>
         </article>
       </div>
@@ -286,15 +254,6 @@ export default function Home() {
 function StoryBlock({ block }: { block: StoryBlockData }) {
   if (block.kind === "media") {
     return <PhotoFigure photo={article.photos[block.photoIndex]} variant="inline" />;
-  }
-
-  if (block.kind === "ad") {
-    return (
-      <aside className="inline-ad" aria-label="Advertisement">
-        <span>Advertisement</span>
-        <div>728 x 90</div>
-      </aside>
-    );
   }
 
   if (block.kind === "interactive") {
@@ -315,7 +274,9 @@ function PhotoFigure({
     <figure className={variant === "hero" ? "hero-media" : "inline-media"}>
       <img src={photo.src} alt={photo.alt} />
       <figcaption>
-        {photo.caption} <span>{photo.credit}</span>
+        <span className="caption-copy">
+          {photo.caption} <span className="caption-credit">| {photo.credit}</span>
+        </span>
       </figcaption>
     </figure>
   );

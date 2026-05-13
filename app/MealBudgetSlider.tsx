@@ -32,8 +32,7 @@ export function MealBudgetSlider() {
 
   return (
     <section className="budget-interactive" aria-label="Meal budget slider">
-      <p className="interactive-kicker">Interactive</p>
-      <h3>Hanggang saan abot ng budget mo?</h3>
+      <h3>Hanggang saan abot ang budget mo?</h3>
       <label htmlFor="meal-budget">Meal budget: PHP {budget}</label>
       <input
         id="meal-budget"

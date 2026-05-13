@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title:
-    "Krisis sa Langis, Krisis sa Sikmura | Ang Kadugyutan",
+    "Krisis sa Langis, Krisis sa Sikmura | DEVC 125",
   description:
     "A news feature prototype on how global oil pressures affect karinderyas and student meals in Batong Malake."
 };
