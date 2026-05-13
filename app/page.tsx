@@ -34,14 +34,14 @@ const article = {
       alt: "Prepared dishes arranged in a small eatery.",
       caption:
         "Isang karinderya ang nag-aalok ng half-order meals sa Barangay Batong Malake upang mapanatiling abot-kaya ang pagkain para sa mga mag-aaral sa kabila ng implasyon.",
-      credit: "Photo by Chloe Perez."
+      credit: "Kuha ni Chloe Perez."
     },
     {
       src: "/photos/2nd.png",
       alt: "A simple student meal served on a table.",
       caption:
         "Inihain ang isang bawas-sa-normal na ulam sa isang karinderya ng Barangay Batong Malake upang mapanatiling abot-kaya ang presyo sa gitna ng implasyon.",
-      credit: "Photo by Chloe Perez."
+      credit: "Kuha ni Chloe Perez."
     }
   ]
 };
