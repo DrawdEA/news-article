@@ -26,7 +26,7 @@ const article = {
     "Krisis sa Langis, Krisis sa Sikmura: Patuloy na Laban ng mga Karinderya sa Batong Malake",
   author: "Jade Hannah Medico",
   date: "May 12, 2026",
-  readTime: "5 min read",
+  readTime: "3 min read",
   treatment: "News Feature",
   photos: [
     {
@@ -73,7 +73,8 @@ const storyBlocks: StoryBlockData[] = [
       "“Alam mo yung, ang takal ko’y ganito, pero kailangan ko pa medyong bawasan para lang hindi tumaas ‘yung cup ko na ulam.” Ayon sa kanya."
   },
   {
-    kind: "interactive"
+    kind: "media",
+    photoIndex: 1
   },
   {
     kind: "paragraph",
@@ -84,10 +85,6 @@ const storyBlocks: StoryBlockData[] = [
     kind: "paragraph",
     text:
       "Mula sa dating ₱50 hanggang ₱60 na budget kada meal, umaabot na ngayon sa halos ₱80 ang ilang pagkain sa paligid ng campus. Dahil dito, maraming estudyante ang napipilitang mag-adjust sa kanilang araw-araw na gastusin."
-  },
-  {
-    kind: "media",
-    photoIndex: 1
   },
   {
     kind: "paragraph",
@@ -133,6 +130,9 @@ const storyBlocks: StoryBlockData[] = [
     kind: "paragraph",
     text:
       "Habang nagpapatuloy ang tensyon sa Gitnang Silangan, patuloy ding umaasa ang mga estudyante at karinderya owners na muling bababa ang presyo ng langis at bilihin. Ngunit sa ngayon, bawat pisong natitipid ay mahalaga, mula gasolinahan hanggang hapag-kainan."
+  },
+  {
+    kind: "interactive"
   }
 ];
 
