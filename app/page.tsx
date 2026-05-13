@@ -13,7 +13,7 @@ import {
 import { MealBudgetSlider } from "./MealBudgetSlider";
 
 type StoryBlockData =
-  | { kind: "paragraph"; text: string }
+  | { kind: "paragraph"; text: React.ReactNode }
   | { kind: "media"; photoIndex: number }
   | { kind: "interactive" };
 
@@ -49,8 +49,15 @@ const article = {
 const storyBlocks: StoryBlockData[] = [
   {
     kind: "paragraph",
-    text:
-      "LOS BAÑOS, LAGUNA — Sa gitna ng tumitinding tensyon sa Gitnang Silangan, hindi lamang mga bansang sangkot sa giyera ang naaapektuhan. Sa Brgy. Batong Malake sa Los Baños, Laguna, ramdam din ang epekto nito sa maliliit na karinderyang araw-araw na pinagkukunan ng pagkain ng mga estudyante at manggagawa."
+    text: (
+      <>
+        <strong>LOS BAÑOS, LAGUNA</strong> — Sa gitna ng tumitinding tensyon sa
+        Gitnang Silangan, hindi lamang mga bansang sangkot sa giyera ang
+        naaapektuhan. Sa Brgy. Batong Malake sa Los Baños, Laguna, ramdam din
+        ang epekto nito sa maliliit na karinderyang araw-araw na pinagkukunan
+        ng pagkain ng mga estudyante at manggagawa.
+      </>
+    )
   },
   {
     kind: "paragraph",
