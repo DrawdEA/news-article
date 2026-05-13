@@ -50,7 +50,7 @@ const storyBlocks: StoryBlockData[] = [
   {
     kind: "paragraph",
     text:
-      "LOS BAÑOS, Laguna — Sa gitna ng tumitinding tensyon sa Gitnang Silangan, hindi lamang mga bansang sangkot sa giyera ang naaapektuhan. Sa Brgy. Batong Malake sa Los Baños, Laguna, ramdam din ang epekto nito sa maliliit na karinderyang araw-araw na pinagkukunan ng pagkain ng mga estudyante at manggagawa."
+      "LOS BAÑOS, LAGUNA — Sa gitna ng tumitinding tensyon sa Gitnang Silangan, hindi lamang mga bansang sangkot sa giyera ang naaapektuhan. Sa Brgy. Batong Malake sa Los Baños, LAGUNA, ramdam din ang epekto nito sa maliliit na karinderyang araw-araw na pinagkukunan ng pagkain ng mga estudyante at manggagawa."
   },
   {
     kind: "paragraph",
